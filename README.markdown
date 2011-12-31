@@ -1,5 +1,11 @@
 A set of tasks for use with Fabric and EC2.
 
+## Installation
+
+Now available on PyPi at http://pypi.python.org/pypi/cloth. Installation is therefore as simple as:
+
+    pip install cloth
+    
 ## Configuration
 
 Export your EC2 credntials as environment variables.
