@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "cloth",
-    version = "0.1",
+    version = "0.2",
     author = "Gareth Rushgrove",
     author_email = "gareth@morethanseven.net",
     url = "https://github.com/garethr/cloth/",
