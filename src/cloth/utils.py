@@ -24,8 +24,11 @@ def instances(exp=".*"):
     instances = []
     for node in ec2_instances():
         if node.tags and node.ip_address:
-            if expression.match(node.tags.get("Name")):
-                instances.append(node)
+            try:
+                if expression.match(node.tags.get("Name")):
+                    instances.append(node)
+            except TypeError:
+                pass
     return instances
 
 def use(node):
