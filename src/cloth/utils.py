@@ -18,12 +18,18 @@ def ec2_instances():
         instances += reservation.instances
     return instances
 
+def ip(node):
+    if node.ip_address:
+        return node.ip_address
+    else:
+        return node.private_ip_address
+
 def instances(exp=".*"):
     "Filter list of machines matching an expression"
     expression = re.compile(exp)
     instances = []
     for node in ec2_instances():
-        if node.tags and node.ip_address:
+        if node.tags and ip(node):
             try:
                 if expression.match(node.tags.get("Name")):
                     instances.append(node)
@@ -35,9 +41,8 @@ def use(node):
     "Set the fabric environment for the specifed node"
     try:
         role = node.tags.get("Name").split('-')[1]
-        env.roledefs[role] += [node.ip_address]
+        env.roledefs[role] += [ip(node)]
     except IndexError:
         pass
     env.nodes += [node]
-    env.hosts += [node.ip_address]
-
+    env.hosts += [ip(node)]
