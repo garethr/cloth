@@ -5,7 +5,7 @@ A set of tasks for use with Fabric and EC2.
 Now available on PyPi at http://pypi.python.org/pypi/cloth. Installation is therefore as simple as:
 
     pip install cloth
-    
+
 ## Configuration
 
 Export your EC2 credntials as environment variables.
@@ -17,7 +17,7 @@ Export your EC2 credntials as environment variables.
 ## Usages
 
 To use just import some or all of the tasks into your fabric file. Or
-create a blank fabfile.py with teh following contents.
+create a blank fabfile.py with the following contents.
 
     #! /usr/bin/env python
     from cloth.tasks import *
